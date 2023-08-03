@@ -28,5 +28,10 @@ namespace service
             int id = clientRepository.SearchClient(CPF);
             return id;
         }
+
+        public void CreateAccount(string CPF)
+        {
+            clientRepository.CreateAccount(CPF);
+        }
     }
 }

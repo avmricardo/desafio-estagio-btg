@@ -16,8 +16,8 @@ namespace app.Controllers
             this.clientService = clientService;
         }
 
-        [HttpPost("createaccount")]
-        public IActionResult CreateAccount([FromBody] ClientDTO client)
+        [HttpPost("clientregister")]
+        public IActionResult ClientRegister([FromBody] ClientDTO client)
         {
             clientService.ClientRegister(client);
             return Ok();
@@ -28,6 +28,13 @@ namespace app.Controllers
         {
             int id = clientService.SearchClient(CPF);
             return Ok(id);
+        }
+
+        [HttpPost("createaccount")]
+        public IActionResult CreateAccount([FromBody] string CPF)
+        {
+            clientService.CreateAccount(CPF);
+            return Ok();
         }
 
         [HttpPost("withdraw")]
