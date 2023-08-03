@@ -22,5 +22,11 @@ namespace service
         {
             clientRepository.ClientRegister(client);
         }
+
+        public int SearchClient(string CPF)
+        {
+            int id = clientRepository.SearchClient(CPF);
+            return id;
+        }
     }
 }

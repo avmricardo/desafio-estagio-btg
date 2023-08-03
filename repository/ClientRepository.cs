@@ -30,5 +30,19 @@ namespace repository
 
             contexto?.Conexao.ExecuteScalar<int?>(sqlClientRegister, clientData);
         }
+
+        public int SearchClient(string CPF)
+        {
+            var sqlSearchClient = @"SELECT id_client FROM public.client WHERE cpf = @CPF";
+
+            var parameter = new
+            {
+                CPF = CPF,
+            };
+
+            int? id = contexto?.Conexao.QuerySingleOrDefault<int?>(sqlSearchClient, parameter);
+
+            return id ?? 0;
+        }
     }
 }

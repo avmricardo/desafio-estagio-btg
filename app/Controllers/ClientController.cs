@@ -23,6 +23,13 @@ namespace app.Controllers
             return Ok();
         }
 
+        [HttpGet("searchclient")]
+        public IActionResult SearchClient([FromQuery] string CPF)
+        {
+            int id = clientService.SearchClient(CPF);
+            return Ok(id);
+        }
+
         [HttpPost("withdraw")]
         public IActionResult Withdraw()
         {
