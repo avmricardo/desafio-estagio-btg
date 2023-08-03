@@ -1,3 +1,4 @@
+using dominio;
 using Microsoft.AspNetCore.Mvc;
 using service.Interfaces;
 using System.Runtime.InteropServices;
@@ -13,6 +14,13 @@ namespace app.Controllers
         public ClientController(IClientService clientService)
         {
             this.clientService = clientService;
+        }
+
+        [HttpPost("createaccount")]
+        public IActionResult CreateAccount([FromBody] ClientDTO client)
+        {
+            clientService.ClientRegister(client);
+            return Ok();
         }
 
         [HttpPost("withdraw")]
