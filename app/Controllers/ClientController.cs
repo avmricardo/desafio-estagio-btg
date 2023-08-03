@@ -30,6 +30,13 @@ namespace app.Controllers
             return Ok(id);
         }
 
+        [HttpPost("updateclient")]
+        public IActionResult UpdateClient([FromBody] ClientDTO client)
+        {
+            clientService.UpdateClient(client);
+            return Ok();
+        }
+
         [HttpPost("withdraw")]
         public IActionResult Withdraw()
         {

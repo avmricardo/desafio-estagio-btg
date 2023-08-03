@@ -28,5 +28,10 @@ namespace service
             int id = clientRepository.SearchClient(CPF);
             return id;
         }
+
+        public void UpdateClient(ClientDTO client)
+        {
+            clientRepository.UpdateClient(client);
+        }
     }
 }

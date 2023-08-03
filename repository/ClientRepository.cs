@@ -45,5 +45,20 @@ namespace repository
 
             return id ?? 0;
         }
+
+        public void UpdateClient(ClientDTO client)
+        {
+            var sqlUpdateClient = @"UPDATE public.client SET name = @Name, telephone = @Telephone, address = @Address WHERE cpf = @CPF";
+
+            var parameters = new
+            {
+                CPF = client.CPF,
+                Name = client.Name,
+                Telephone = client.Telephone,
+                Address = client.Address,
+            };
+
+            contexto?.Conexao.Execute(sqlUpdateClient, parameters);
+        }
     }
 }
