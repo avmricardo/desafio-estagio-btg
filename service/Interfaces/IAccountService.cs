@@ -9,5 +9,6 @@ namespace service.Interfaces
     public interface IAccountService
     {
         public void CreateAccount(string CPF);
+        public void ChangeBalance(int value, int numberAccount);
     }
 }

@@ -22,5 +22,10 @@ namespace service
         {
             accountRepository.CreateAccount(CPF);
         }
+
+        public void ChangeBalance(int value, int numberAccount)
+        {
+            accountRepository.ChangeBalance(value, numberAccount);
+        }
     }
 }

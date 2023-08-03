@@ -35,5 +35,19 @@ namespace repository
 
             contexto?.Conexao.Execute(sqlCreateAccount, parameter);
         }
+
+        public void ChangeBalance(int value, int numberAccount)
+        {
+            var sqlChangeBalance = @"UPDATE public.account SET balance = @Value WHERE number = @NumberACcount";
+
+            var parameters = new
+            {
+                Value = value,
+                NumberAccount = numberAccount
+            };
+
+            contexto?.Conexao.Execute(sqlChangeBalance, parameters);
+            
+        }
     }
 }

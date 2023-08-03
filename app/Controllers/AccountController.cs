@@ -22,5 +22,12 @@ namespace app.Controllers
             accountService.CreateAccount(CPF);
             return Ok();
         }
+
+        [HttpPost("changebalance")]
+        public IActionResult ChangeBalance([FromBody] int value, int numberAccount)
+        {
+            accountService.ChangeBalance(value, numberAccount);
+            return Ok();
+        }
     }
 }
