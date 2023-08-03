@@ -30,13 +30,6 @@ namespace app.Controllers
             return Ok(id);
         }
 
-        [HttpPost("createaccount")]
-        public IActionResult CreateAccount([FromBody] string CPF)
-        {
-            clientService.CreateAccount(CPF);
-            return Ok();
-        }
-
         [HttpPost("withdraw")]
         public IActionResult Withdraw()
         {

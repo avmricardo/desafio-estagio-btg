@@ -8,6 +8,7 @@ namespace app.DI
         public static void AddConfigRepositories(this IServiceCollection services)
         {
             services.AddScoped<IClientRepository, ClientRepository>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
         }
     }
 }

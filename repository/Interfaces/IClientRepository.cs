@@ -11,6 +11,5 @@ namespace repository.Interfaces
     {
         public void ClientRegister(ClientDTO client);
         public int SearchClient(string CPF);
-        public void CreateAccount(string CPF);
     }
 }
