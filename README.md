@@ -46,6 +46,8 @@ Uma conta pode realizar mais de uma movimentação, mas uma movimentação está
 
 ## Diagrama Entidade-Relacionamento
 
+![DER_desafio](/docs/DER_desafio.jpg)
+
 Os Scripts DDL e DML estão presentes nas pastas [DDL](docs/DDL) e [DML](docs/DML).
 
 Para a utlização dos scripts envolvendo a tabela Transaction, é importante informar que as inserções diretas nela (como INSERT ou UPDATE) não irão afetar o valor do saldo na tabela Account. O valor da transação altera o valor do saldo por meio dos códigos, logo, para realizar saques e depósitos é necessário utilizar a API.
@@ -82,4 +84,4 @@ A função Withdrar recebe o número da conta e o valor do saque e retira esse v
 
 A função Deposit tem uma funcionalidade parecida com a Withdraw, mas para depósitos.
 
-A ListTransactions recebe o número da conta e retorna uma lista com os dados de transações realizadas, sendo eles o valor da transação, a data e hora o tipo, sendo saque ou depósito,
+A ListTransactions recebe o número da conta e retorna uma lista com os dados de transações realizadas, sendo eles o valor da transação, a data e hora o tipo, sendo saque ou depósito.
