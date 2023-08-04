@@ -36,6 +36,14 @@ Atributos:
 
 Relacionamentos:
 
+- Client 1 --- 1 Account
+
+Essa modelagem está trabalhando com contas de apenas um tipo, com isso um cliente estará associado a apenas uma conta e uma conta será vinculada a apenas um cliente.
+
+- Account 1 --- N Transaction
+
+Uma conta pode realizar mais de uma movimentação, mas uma movimentação está associada a apenas uma conta (pois no caso trabalhado as transações são apenas de saques e depósitos).
+
 ## Diagrama Entidade-Relacionamento
 
 Os Scripts DDL e DML estão presentes nas pastas [DDL](docs/DDL) e [DML](docs/DML).
