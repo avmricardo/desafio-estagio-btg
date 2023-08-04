@@ -16,18 +16,11 @@ namespace app.Controllers
             this.clientService = clientService;
         }
 
-        [HttpPost("clientregister")]
-        public IActionResult ClientRegister([FromBody] ClientDTO client)
-        {
-            clientService.ClientRegister(client);
-            return Ok();
-        }
-
         [HttpGet("searchclient")]
         public IActionResult SearchClient([FromQuery] string CPF)
         {
-            int id = clientService.SearchClient(CPF);
-            return Ok(id);
+            ClientDTO client = clientService.SearchClient(CPF);
+            return Ok(client);
         }
 
         [HttpPost("updateclient")]

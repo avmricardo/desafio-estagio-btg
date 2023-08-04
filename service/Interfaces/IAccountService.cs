@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,7 @@ namespace service.Interfaces
 {
     public interface IAccountService
     {
-        public void CreateAccount(string CPF);
-        public void ChangeBalance(int value, int numberAccount);
-        public int SearchAccount(int numberAccount);
         public int ViewBalance(int numberAccount);
+        public void CreateClientAccount(ClientDTO client);
     }
 }

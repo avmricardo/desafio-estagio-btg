@@ -1,4 +1,5 @@
-﻿using repository;
+﻿using dominio;
+using repository;
 using repository.Interfaces;
 using service.Interfaces;
 using System;
@@ -12,26 +13,18 @@ namespace service
     public class AccountService : IAccountService
     {
         private readonly IAccountRepository accountRepository;
+        private readonly IClientRepository clientRepository;
 
-        public AccountService(IAccountRepository accountRepository) 
+        public AccountService(IAccountRepository accountRepository, IClientRepository clientRepository) 
         {
             this.accountRepository = accountRepository;
+            this.clientRepository = clientRepository;
         }
 
-        public void CreateAccount(string CPF)
+        public void CreateClientAccount(ClientDTO client)
         {
-            accountRepository.CreateAccount(CPF);
-        }
-
-        public void ChangeBalance(int value, int numberAccount)
-        {
-            accountRepository.ChangeBalance(value, numberAccount);
-        }
-
-        public int SearchAccount(int numberAccount)
-        {
-            int idAccount = accountRepository.SearchAccount(numberAccount);
-            return idAccount;
+            int idClient = clientRepository.ClientRegister(client);
+            accountRepository.CreateAccount(idClient);
         }
 
         public int ViewBalance(int numberAccount)

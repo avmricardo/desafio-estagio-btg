@@ -9,8 +9,7 @@ namespace service.Interfaces
 {
     public interface IClientService
     {
-        public void ClientRegister(ClientDTO client);
-        public int SearchClient(string CPF);
+        public ClientDTO SearchClient(string CPF);
         public void UpdateClient(ClientDTO client);
     }
 }

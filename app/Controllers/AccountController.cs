@@ -16,25 +16,11 @@ namespace app.Controllers
             this.accountService = accountService;
         }
 
-        [HttpPost("createaccount")]
-        public IActionResult CreateAccount([FromBody] string CPF)
+        [HttpPost("createclientaccount")]
+        public IActionResult CreateClientAccount([FromBody]ClientDTO client)
         {
-            accountService.CreateAccount(CPF);
+            accountService.CreateClientAccount(client);
             return Ok();
-        }
-
-        [HttpPost("changebalance")]
-        public IActionResult ChangeBalance(int value, int numberAccount)
-        {
-            accountService.ChangeBalance(value, numberAccount);
-            return Ok();
-        }
-
-        [HttpGet("searchaccount")]
-        public IActionResult SearchAccount([FromQuery]int number)
-        {
-            int idAccount = accountService.SearchAccount(number);
-            return Ok(idAccount);
         }
 
         [HttpGet("viewbalance")]

@@ -18,15 +18,10 @@ namespace service
             this.clientRepository = clientRepository;
         }
 
-        public void ClientRegister(ClientDTO client)
+        public ClientDTO SearchClient(string CPF)
         {
-            clientRepository.ClientRegister(client);
-        }
-
-        public int SearchClient(string CPF)
-        {
-            int id = clientRepository.SearchClient(CPF);
-            return id;
+            ClientDTO client = clientRepository.SearchClient(CPF);
+            return client;
         }
 
         public void UpdateClient(ClientDTO client)

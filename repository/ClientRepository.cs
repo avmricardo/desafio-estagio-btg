@@ -17,9 +17,9 @@ namespace repository
             contexto = resolverContexto(ContextoBancoDeDados.Postgresql);
         }
 
-        public void ClientRegister(ClientDTO client)
+        public int ClientRegister(ClientDTO client)
         {
-            var sqlClientRegister = @"INSERT INTO public.client(cpf, name, telephone, address) VALUES(@CPF, @Name, @Telephone, @Address)";
+            var sqlClientRegister = @"INSERT INTO public.client(cpf, name, telephone, address) VALUES(@CPF, @Name, @Telephone, @Address) RETURNING id_client";
 
             var clientData = new
             {
@@ -29,19 +29,20 @@ namespace repository
                 Address = client.Address,
             };
 
-            contexto?.Conexao.ExecuteScalar<int?>(sqlClientRegister, clientData);
+            int? idClient = contexto?.Conexao.ExecuteScalar<int?>(sqlClientRegister, clientData);
+            return idClient ?? 0;
         }
 
-        public int SearchClient(string CPF)
+        public int GetClientId(string CPF)
         {
-            var sqlSearchClient = @"SELECT id_client FROM public.client WHERE cpf = @CPF";
+            var sqlGetClientId = @"SELECT id_client FROM public.client WHERE cpf = @CPF";
 
             var parameter = new
             {
                 CPF = CPF,
             };
 
-            int? id = contexto?.Conexao.QuerySingleOrDefault<int?>(sqlSearchClient, parameter);
+            int? id = contexto?.Conexao.QuerySingleOrDefault<int?>(sqlGetClientId, parameter);
 
             return id ?? 0;
         }
@@ -59,6 +60,19 @@ namespace repository
             };
 
             contexto?.Conexao.Execute(sqlUpdateClient, parameters);
+        }
+
+        public ClientDTO SearchClient(string cpf)
+        {
+            var sqlSearchClient = @"SELECT cpf, name, telephone, address FROM public.client WHERE cpf = @CPF";
+
+            var parameter = new
+            {
+                CPF = cpf
+            };
+
+            ClientDTO client = contexto?.Conexao.QuerySingleOrDefault<ClientDTO>(sqlSearchClient, parameter);
+            return client;
         }
     }
 }

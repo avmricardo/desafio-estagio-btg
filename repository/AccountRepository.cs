@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using dominio;
 using dominio.Enums;
 using repository.Contexto;
 using repository.Interfaces;
@@ -22,15 +23,13 @@ namespace repository
             this.clientRepository = clientRepository;
         }
 
-        public void CreateAccount(string CPF)
+        public void CreateAccount(int idClient)
         {
             var sqlCreateAccount = @"INSERT INTO public.account(id_client) VALUES(@IdCLient)";
 
-            int IdClient = clientRepository.SearchClient(CPF);
-
             var parameter = new
             {
-                IdClient = IdClient,
+                IdClient = idClient,
             };
 
             contexto?.Conexao.Execute(sqlCreateAccount, parameter);
