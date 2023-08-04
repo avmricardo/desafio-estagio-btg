@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using dominio;
 using dominio.Enums;
 using repository.Contexto;
 using repository.Interfaces;
@@ -37,6 +38,19 @@ namespace repository
             accountRepository.ChangeBalance(valueAccount, accountRepository.SearchAccount(numberAccount));
 
             contexto?.Conexao.Execute(sqlDeposit, parameters);
+        }
+
+        public List<TransactionDTO> ListTransaction(int numberAccount)
+        {
+            var sqpListTransaction = @"SELECT value, date, type_transaction FROM public.transaction WHERE id_account = @IdAccount";
+
+            var parameter = new
+            {
+                IdAccount = accountRepository.SearchAccount(numberAccount)
+            };
+
+            List<TransactionDTO>? transactions = contexto?.Conexao.Query<TransactionDTO>(sqpListTransaction, parameter).ToList();
+            return transactions;
         }
     }
 }

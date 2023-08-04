@@ -37,5 +37,12 @@ namespace app.Controllers
             transactionService.Deposit(numberAccount, value);
             return Ok();
         }
+
+        [HttpGet("listtransactions")]
+        public IActionResult ListTransactions(int numberAccount)
+        {
+            List<TransactionDTO> transactions = transactionService.ListTransaction(numberAccount);
+            return Ok(transactions);
+        }
     }
 }

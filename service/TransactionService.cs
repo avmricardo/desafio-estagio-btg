@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using dominio;
+using Microsoft.AspNetCore.Mvc;
 using repository.Interfaces;
 using service.Interfaces;
 using System;
@@ -35,6 +36,12 @@ namespace service
 
             int newValue = accountRepository.ViewBalance(numberAccount) - value;
             transactionRepository.TransactionRegister(numberAccount, value, newValue, 1);
+        }
+
+        public List<TransactionDTO> ListTransaction(int numberAccount)
+        {
+            List<TransactionDTO> transactions = transactionRepository.ListTransaction(numberAccount);
+            return transactions;
         }
     }
 }
