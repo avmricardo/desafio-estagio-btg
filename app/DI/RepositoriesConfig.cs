@@ -9,6 +9,7 @@ namespace app.DI
         {
             services.AddScoped<IClientRepository, ClientRepository>();
             services.AddScoped<IAccountRepository, AccountRepository>();
+            services.AddScoped<ITransactionRepository, TransactionRepository>();
         }
     }
 }

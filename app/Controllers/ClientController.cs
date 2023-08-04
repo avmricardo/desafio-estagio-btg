@@ -36,23 +36,5 @@ namespace app.Controllers
             clientService.UpdateClient(client);
             return Ok();
         }
-
-        [HttpPost("withdraw")]
-        public IActionResult Withdraw()
-        {
-            return Ok();
-        }
-
-        [HttpPost("deposit")]
-        public IActionResult Deposit()
-        {
-            return Ok();
-        }
-
-        [HttpGet("balance")]
-        public IActionResult Balance()
-        {
-            return Ok();
-        }
     }
 }

@@ -1,4 +1,6 @@
-﻿using service;
+﻿using repository.Interfaces;
+using repository;
+using service;
 using service.Interfaces;
 
 namespace app.DI
@@ -9,6 +11,7 @@ namespace app.DI
         {
             services.AddScoped<IClientService, ClientService>();
             services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<ITransactionService, TransactionService>();
         }
     }
 }

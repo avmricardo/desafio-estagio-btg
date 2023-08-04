@@ -27,5 +27,17 @@ namespace service
         {
             accountRepository.ChangeBalance(value, numberAccount);
         }
+
+        public int SearchAccount(int numberAccount)
+        {
+            int idAccount = accountRepository.SearchAccount(numberAccount);
+            return idAccount;
+        }
+
+        public int ViewBalance(int numberAccount)
+        {
+            int balance = accountRepository.ViewBalance(numberAccount);
+            return balance;
+        }
     }
 }

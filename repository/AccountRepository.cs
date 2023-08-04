@@ -49,5 +49,31 @@ namespace repository
             contexto?.Conexao.Execute(sqlChangeBalance, parameters);
             
         }
+
+        public int SearchAccount(int numberAccount)
+        {
+            var sqlSearchAccount = @"SELECT id_account FROM public.account WHERE number = @NumberAccount";
+
+            var parameter = new
+            {
+                NumberAccount = numberAccount
+            };
+
+            int? idAccount = contexto?.Conexao.QuerySingleOrDefault<int>(sqlSearchAccount, parameter);
+            return idAccount ?? 0;
+        }
+
+        public int ViewBalance(int numberAccount)
+        {
+            var sqlViewBalance = @"SELECT balance FROM public.account WHERE number = @NumberAccount";
+
+            var parameter = new
+            {
+                NumberAccount = numberAccount
+            };
+
+            int? balance = contexto?.Conexao.QuerySingleOrDefault<int>(sqlViewBalance, parameter);
+            return balance ?? 0;
+        }
     }
 }

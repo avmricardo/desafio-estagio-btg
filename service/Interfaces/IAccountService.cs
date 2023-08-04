@@ -10,5 +10,7 @@ namespace service.Interfaces
     {
         public void CreateAccount(string CPF);
         public void ChangeBalance(int value, int numberAccount);
+        public int SearchAccount(int numberAccount);
+        public int ViewBalance(int numberAccount);
     }
 }
