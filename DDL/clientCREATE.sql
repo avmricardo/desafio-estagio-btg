@@ -9,7 +9,9 @@ CREATE TABLE IF NOT EXISTS public.client
     name character varying(100) COLLATE pg_catalog."default" NOT NULL,
     telephone character varying(20) COLLATE pg_catalog."default" NOT NULL,
     address character varying(100) COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT pk_client PRIMARY KEY (id_client)
+    CONSTRAINT pk_client PRIMARY KEY (id_client),
+    CONSTRAINT unique_cpf UNIQUE (cpf)
+        INCLUDE(cpf)
 )
 
 TABLESPACE pg_default;

@@ -42,7 +42,8 @@ namespace repository
 
         public List<TransactionDTO> ListTransaction(int numberAccount)
         {
-            var sqpListTransaction = @"SELECT value, date, type_transaction FROM public.transaction WHERE id_account = @IdAccount";
+            var sqpListTransaction = @"SELECT t.value, t.date, tt.description AS type_transaction FROM public.transaction t JOIN public.type_transaction tt ON
+                                        t.type_transaction = tt.type WHERE id_account = @IdAccount";
 
             var parameter = new
             {
