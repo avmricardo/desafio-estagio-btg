@@ -38,10 +38,10 @@ Relacionamentos:
 
 ## Diagrama Entidade-Relacionamento
 
-Os Scripts DDL e DML estão presentes nas pastas [DDL](/DDL) e [DML](/DML).
+Os Scripts DDL e DML estão presentes nas pastas [DDL](docs/DDL) e [DML](docs/DML).
 
 ## Endpoints da API
 
-![Alt text](endpoints/image.png)
-![Alt text](endpoints/image-1.png)
-![Alt text](endpoints/image-2.png)
+![Alt text](docs/endpoints/image.png)
+![Alt text](docs/endpoints/image-1.png)
+![Alt text](docs/endpoints/image-2.png)
