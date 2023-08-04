@@ -28,5 +28,11 @@ namespace service
         {
             clientRepository.UpdateClient(client);
         }
+
+        public List<ClientDTO> ListCLient()
+        {
+            List<ClientDTO> listClient = clientRepository.ListCLient();
+            return listClient;
+        }
     }
 }

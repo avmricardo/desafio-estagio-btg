@@ -3,7 +3,9 @@ using dominio;
 using dominio.Enums;
 using repository.Contexto;
 using repository.Interfaces;
+using System.Collections.Generic;
 using System;
+using System.Linq;
 using static repository.Contexto.ResolverContexto;
 
 namespace repository
@@ -71,6 +73,14 @@ namespace repository
             };
 
             contexto?.Conexao.ExecuteScalar(sqlDeleteClient, parameter);
+        }
+
+        public List<ClientDTO> ListCLient()
+        {
+            var sqlListCLient = @"SELECT cpf, name, telephone, address FROM public.client";
+
+            List<ClientDTO> listCLient = contexto?.Conexao.Query<ClientDTO>(sqlListCLient).ToList();
+            return listCLient;
         }
     }
 }

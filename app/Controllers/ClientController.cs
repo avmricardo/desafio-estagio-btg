@@ -29,5 +29,12 @@ namespace app.Controllers
             clientService.UpdateClient(client);
             return Ok();
         }
+
+        [HttpGet("listclients")]
+        public IActionResult ListClient()
+        {
+            List<ClientDTO> clientList = clientService.ListCLient();
+            return Ok(clientList);
+        }
     }
 }

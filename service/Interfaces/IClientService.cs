@@ -11,5 +11,6 @@ namespace service.Interfaces
     {
         public ClientDTO SearchClient(string CPF);
         public void UpdateClient(ClientDTO client);
+        public List<ClientDTO> ListCLient();
     }
 }

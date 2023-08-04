@@ -13,5 +13,6 @@ namespace repository.Interfaces
         public void UpdateClient(ClientDTO client);
         public ClientDTO SearchClient(string cpf);
         public void DeleteClient(int idClient);
+        public List<ClientDTO> ListCLient();
     }
 }
