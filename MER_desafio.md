@@ -2,54 +2,51 @@
 
 ## Cliente
 
-| Cliente
+| Client
 |--
-| <u>id_cliente</u>
+| <u>id_client</u>
 |cpf
-|nome
-|telefone
-|endereco
+|name
+|telephone
+|address
 
-Primary key: id_cliente
+Primary key: id_client
 
 ## Conta
 
-| Conta           |
-| --              |
-| <u>id_conta</u> |
-| id_cliente      |
-| numero          |
-| saldo           |
-| tipo_conta      |
-
-Primary key: id_conta
-
-Foreign key: id_cliente
-
-tipo_conta: conta corrente, depósito, etc..
-
-## Movimentacoes
-
-| Movimentacoes
+| Account
 | --
-| id_movimentacao
-| id_conta
-| valor
+| <u>id_account</u>
+| id_client
+| number
+| balance
+
+Primary key: id_account
+
+Foreign key: id_client
+
+## Movimentações
+
+| Transaction
+| --
+| id_transaction
+| id_account
+| value
 | data
-| tipo_movimentacao
+| type_transaction
 
-Primary key: id_movimentacao
+Primary key: id_transaction
 
-Foreign key: id_conta
+Foreign key: id_account
 
 tipo_movimentacao: saque ou depósito
 
 # Relacionamentos
 
-- Cliente N --- M Conta
+- Client 1 --- 1 Account
 
-Um cliente pode ter mais de uma conta e uma conta pode estar associada a mais de um cliente (casos com contas com representantes, os representantes entrariam como clientes também).
+Essa modelagem está trabalhando com contas de apenas um tipo, com isso um cliente estará associado a apenas uma conta e uma conta será vinculada a apenas um cliente.
 
-- Conta 1 --- N Movimentacoes
+- Account 1 --- N Transaction
 
-Uma conta pode realizar mais de uma movimentação, mas uma movimentação está associada a apenas uma conta (pois no caso estamos tratando apenas de saques e depósitos).
+Uma conta pode realizar mais de uma movimentação, mas uma movimentação está associada a apenas uma conta (pois no caso trabalhado as transações são apenas de saques e depósitos).
