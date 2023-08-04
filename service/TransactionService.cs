@@ -23,7 +23,7 @@ namespace service
         public void Deposit(int numberAccount, int value)
         {
             int newValue = accountRepository.ViewBalance(numberAccount) + value;
-            transactionRepository.TransactionRegister(numberAccount, newValue, 2);
+            transactionRepository.TransactionRegister(numberAccount, value, newValue, 2);
         }
 
         public void Withdraw(int numberAccount, int value)
@@ -34,7 +34,7 @@ namespace service
             }
 
             int newValue = accountRepository.ViewBalance(numberAccount) - value;
-            transactionRepository.TransactionRegister(numberAccount, newValue, 1);
+            transactionRepository.TransactionRegister(numberAccount, value, newValue, 1);
         }
     }
 }

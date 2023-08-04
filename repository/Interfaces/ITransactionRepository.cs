@@ -8,6 +8,6 @@ namespace repository.Interfaces
 {
     public interface ITransactionRepository
     {
-        public void TransactionRegister(int numberAccount, int value, int typeTransaction);
+        public void TransactionRegister(int numberAccount, int valueTransaction, int valueAccount, int typeTransaction);
     }
 }

@@ -22,7 +22,7 @@ namespace repository
             this.accountRepository = accountRepository;
         }
 
-        public void TransactionRegister(int numberAccount, int value, int typeTransaction)
+        public void TransactionRegister(int numberAccount, int valueTransaction, int valueAccount, int typeTransaction)
         {
             var sqlDeposit = @"INSERT INTO public.transaction(value, id_account, date, type_transaction) VALUES(@Value, @Id_account, @Date, @Type_transaction)";
 
@@ -30,11 +30,11 @@ namespace repository
             {
                 Date = DateTime.Now,
                 Id_account = accountRepository.SearchAccount(numberAccount),
-                Value = value,
+                Value = valueTransaction,
                 Type_transaction = typeTransaction
             };
 
-            accountRepository.ChangeBalance(value, accountRepository.SearchAccount(numberAccount));
+            accountRepository.ChangeBalance(valueAccount, accountRepository.SearchAccount(numberAccount));
 
             contexto?.Conexao.Execute(sqlDeposit, parameters);
         }
