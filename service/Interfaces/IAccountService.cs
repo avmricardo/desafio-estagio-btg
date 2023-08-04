@@ -11,5 +11,6 @@ namespace service.Interfaces
     {
         public int ViewBalance(int numberAccount);
         public void CreateClientAccount(ClientDTO client);
+        public void DeleteClientAccount(int numberAccount);
     }
 }

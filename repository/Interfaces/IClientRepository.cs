@@ -10,8 +10,8 @@ namespace repository.Interfaces
     public interface IClientRepository
     {
         public int ClientRegister(ClientDTO client);
-        public int GetClientId(string CPF);
         public void UpdateClient(ClientDTO client);
         public ClientDTO SearchClient(string cpf);
+        public void DeleteClient(int idClient);
     }
 }

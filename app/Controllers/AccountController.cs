@@ -30,5 +30,12 @@ namespace app.Controllers
             return Ok(balance);
         }
 
+        [HttpPost("deleteclientaccount")]
+        public IActionResult DeleteClientAccount(int numberAccount)
+        {
+            accountService.DeleteClientAccount(numberAccount);
+            return Ok();
+        }
+
     }
 }

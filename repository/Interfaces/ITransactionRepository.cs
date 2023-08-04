@@ -11,5 +11,6 @@ namespace repository.Interfaces
     {
         public void TransactionRegister(int numberAccount, int valueTransaction, int valueAccount, int typeTransaction);
         public List<TransactionDTO> ListTransaction(int numberAccount);
+        public void DeleteTransaction(int idAccount);
     }
 }

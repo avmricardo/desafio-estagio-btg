@@ -14,11 +14,13 @@ namespace service
     {
         private readonly IAccountRepository accountRepository;
         private readonly IClientRepository clientRepository;
+        private readonly ITransactionRepository transactionRepository;
 
-        public AccountService(IAccountRepository accountRepository, IClientRepository clientRepository) 
+        public AccountService(IAccountRepository accountRepository, IClientRepository clientRepository, ITransactionRepository transactionRepository) 
         {
             this.accountRepository = accountRepository;
             this.clientRepository = clientRepository;
+            this.transactionRepository = transactionRepository;
         }
 
         public void CreateClientAccount(ClientDTO client)
@@ -31,6 +33,15 @@ namespace service
         {
             int balance = accountRepository.ViewBalance(numberAccount);
             return balance;
+        }
+
+        public void DeleteClientAccount(int numberAccount)
+        {
+            int idAccount = accountRepository.SearchAccount(numberAccount);
+
+            transactionRepository.DeleteTransaction(idAccount);
+            int idClient = accountRepository.DeleteAccount(idAccount);
+            clientRepository.DeleteClient(idClient);
         }
     }
 }

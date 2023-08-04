@@ -13,5 +13,6 @@ namespace repository.Interfaces
         public void ChangeBalance(int value, int numberAccount);
         public int SearchAccount(int numberAccount);
         public int ViewBalance(int numberAccount);
+        public int DeleteAccount(int idAccount);
     }
 }

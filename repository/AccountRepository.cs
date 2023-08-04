@@ -74,5 +74,18 @@ namespace repository
             int? balance = contexto?.Conexao.QuerySingleOrDefault<int>(sqlViewBalance, parameter);
             return balance ?? 0;
         }
+
+        public int DeleteAccount(int idAccount)
+        {
+            var sqlDeleteAccount = @"DELETE FROM public.account WHERE id_account = @IdAccount RETURNING id_client";
+
+            var parameter = new
+            {
+                IdAccount = idAccount
+            };
+
+            int? idClient = contexto?.Conexao.QuerySingleOrDefault<int>(sqlDeleteAccount, parameter);
+            return idClient ?? 0;
+        }
     }
 }

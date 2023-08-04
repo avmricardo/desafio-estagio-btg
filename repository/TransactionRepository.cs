@@ -52,5 +52,17 @@ namespace repository
             List<TransactionDTO>? transactions = contexto?.Conexao.Query<TransactionDTO>(sqpListTransaction, parameter).ToList();
             return transactions;
         }
+
+        public void DeleteTransaction(int idAccount)
+        {
+            var sqlDeleteTRansaction = @"DELETE FROM public.transaction WHERE id_account = @IdAccount";
+
+            var parameter = new
+            {
+                IdAccount = idAccount
+            };
+
+            contexto?.Conexao.ExecuteScalar(sqlDeleteTRansaction, parameter);
+        }
     }
 }

@@ -33,20 +33,6 @@ namespace repository
             return idClient ?? 0;
         }
 
-        public int GetClientId(string CPF)
-        {
-            var sqlGetClientId = @"SELECT id_client FROM public.client WHERE cpf = @CPF";
-
-            var parameter = new
-            {
-                CPF = CPF,
-            };
-
-            int? id = contexto?.Conexao.QuerySingleOrDefault<int?>(sqlGetClientId, parameter);
-
-            return id ?? 0;
-        }
-
         public void UpdateClient(ClientDTO client)
         {
             var sqlUpdateClient = @"UPDATE public.client SET name = @Name, telephone = @Telephone, address = @Address WHERE cpf = @CPF";
@@ -73,6 +59,18 @@ namespace repository
 
             ClientDTO client = contexto?.Conexao.QuerySingleOrDefault<ClientDTO>(sqlSearchClient, parameter);
             return client;
+        }
+
+        public void DeleteClient(int idClient)
+        {
+            var sqlDeleteClient = @"DELETE FROM public.client WHERE id_client = @IdClient";
+
+            var parameter = new
+            {
+                IdClient = idClient
+            };
+
+            contexto?.Conexao.ExecuteScalar(sqlDeleteClient, parameter);
         }
     }
 }
