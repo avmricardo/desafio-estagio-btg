@@ -28,7 +28,7 @@ namespace repository
 
             var parameters = new
             {
-                Date = DateTime.Today,
+                Date = DateTime.Now,
                 Id_account = accountRepository.SearchAccount(numberAccount),
                 Value = value,
                 Type_transaction = typeTransaction

@@ -9,5 +9,6 @@ namespace service.Interfaces
     public interface ITransactionService
     {
         public void Deposit(int numberAccount, int value);
+        public void Withdraw(int numberAccount, int value);
     }
 }

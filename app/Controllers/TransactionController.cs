@@ -17,9 +17,18 @@ namespace app.Controllers
         }
 
         [HttpPost("withdraw")]
-        public IActionResult Withdraw()
+        public IActionResult Withdraw(int numberAccount, int value)
         {
-            return Ok();
+
+            try
+            {
+                transactionService.Withdraw(numberAccount, value);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost("deposit")]

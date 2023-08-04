@@ -1,4 +1,5 @@
-﻿using repository.Interfaces;
+﻿using Microsoft.AspNetCore.Mvc;
+using repository.Interfaces;
 using service.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,17 @@ namespace service
         {
             int newValue = accountRepository.ViewBalance(numberAccount) + value;
             transactionRepository.TransactionRegister(numberAccount, newValue, 2);
+        }
+
+        public void Withdraw(int numberAccount, int value)
+        {
+            if (accountRepository.ViewBalance(numberAccount) < value)
+            {
+                throw new Exception("Insufficient balance for withdrawal");
+            }
+
+            int newValue = accountRepository.ViewBalance(numberAccount) - value;
+            transactionRepository.TransactionRegister(numberAccount, newValue, 1);
         }
     }
 }
