@@ -98,7 +98,7 @@ Os endpoints foram dividos em funções ligadas aos clientes, as contas e as tra
 
 ### Conta:
 
-![Alt text](image.png)
+![Alt text](docs/endpoints/image.png)
 
 A função CreateClientAccount recebe como parâmetro os atributos do cliente (cpf, nome, telefone e endereço), cadastra ele no banco de clientes e já cria automaticamente uma conta acossiada a ele.
 
