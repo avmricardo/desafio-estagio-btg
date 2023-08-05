@@ -9,6 +9,7 @@ Projeto destinado ao desenvolvimento de um sistema de contas digitais. Tal desaf
 - Modelo Entidade-Relacionamento
 - Diagrama Entidade-Relacionamento
 - Endpoints da API
+- Exemplos de uso
 
 ## Introdução
 
@@ -50,7 +51,7 @@ Uma conta pode realizar mais de uma movimentação, mas uma movimentação está
 
 Os Scripts DDL e DML estão presentes nas pastas [DDL](docs/DDL) e [DML](docs/DML).
 
-Para a utlização dos scripts envolvendo a tabela Transaction, é importante informar que as inserções diretas nela (como INSERT ou UPDATE) não irão afetar o valor do saldo na tabela Account. O valor da transação altera o valor do saldo por meio dos códigos, logo, para realizar saques e depósitos é necessário utilizar a API.
+Para a utilização dos scripts envolvendo a tabela Transaction, é importante informar que as inserções diretas nela (como INSERT ou UPDATE) não irão afetar o valor do saldo na tabela Account. O valor da transação altera o valor do saldo por meio dos códigos, logo, para realizar saques e depósitos é necessário utilizar a API.
 
 ## Endpoints da API
 
@@ -85,3 +86,56 @@ A função Withdrar recebe o número da conta e o valor do saque e retira esse v
 A função Deposit tem uma funcionalidade parecida com a Withdraw, mas para depósitos.
 
 A ListTransactions recebe o número da conta e retorna uma lista com os dados de transações realizadas, sendo eles o valor da transação, a data e hora o tipo, sendo saque ou depósito.
+
+## Exemplos de uso
+
+Citando algumas aplicações do sistema, iremos começar com os bancos sem dados:
+
+Tabela de clientes:
+
+![Alt text](/docs/examples_photos/image.png)
+
+Tabela de contas:
+
+![Alt text](/docs/examples_photos/image1.png)
+
+Tabela de transações:
+
+![Alt text](docs/examples_photos/image2.png)
+
+Código de SELECT acima:
+
+```sql
+SELECT t.id_transaction, t.value, t.id_account, t.date, tt.description
+	FROM public.transaction t JOIN public.type_transaction tt ON t.type_transaction = tt.type;
+```
+
+A tabela type_transaction está representada abaixo:
+
+![Alt text](docs/examples_photos/image3.png)
+
+### Cadastro de clientes e contas
+
+Vamos fazer o cadastro de 2 clientes novos:
+
+![Alt text](docs/examples_photos//image4.png)
+
+![Alt text](docs/examples_photos/image-1.png)
+
+Tabela de clientes:
+
+![Alt text](docs/examples_photos//image6.png)
+
+Tabela de contas:
+
+![Alt text](docs/examples_photos//image7.png)
+
+### Realização de transações
+
+Ao realizar uma sequência de saques e depósitos na conta de número 14, podemos ver o histórico a partir do método listtransaction:
+
+![Alt text](docs/examples_photos/image-12.png)
+
+Abaixo estão os dados no banco, nota-se no método implementado os dados aparecem por ordem de data/horário, no banco não.
+
+![Alt text](docs/examples_photos//image8.png)

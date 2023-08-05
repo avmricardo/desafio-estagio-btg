@@ -9,7 +9,6 @@
 |name
 |telephone
 |address
-|
 
 Primary key: id_client
 
@@ -22,7 +21,6 @@ Primary key: id_client
 | id_client
 | number
 | balance
-|
 
 Primary key: id_account
 
@@ -37,7 +35,6 @@ Foreign key: id_client
 | value
 | data
 | type_transaction
-|
 
 Primary key: id_transaction
 
