@@ -38,8 +38,9 @@ Para rodar a aplicação usando Visual Studio, basta dar um duplo clique no arqu
 ![Alt text](docs/examples_photos//visualstudio.png)
 
 #### Utilizando Visual Studio Code
-Para rodar utilizando o VS Code, basta seguir a seguinte instrução:
-Entre na pasta do serviço. Dentro da pasta "app" rode o comando:
+Para rodar utilizando o VS Code, basta seguir a seguinte instrução: 
+
+Entre na pasta "project/app" e rode o comando:
 
 ```bash
 dotnet run
@@ -97,7 +98,7 @@ Os endpoints foram dividos em funções ligadas aos clientes, as contas e as tra
 
 ### Conta:
 
-![Alt text](docs/endpoints/image.png)
+![Alt text](image.png)
 
 A função CreateClientAccount recebe como parâmetro os atributos do cliente (cpf, nome, telefone e endereço), cadastra ele no banco de clientes e já cria automaticamente uma conta acossiada a ele.
 
