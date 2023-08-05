@@ -6,8 +6,10 @@ Projeto destinado ao desenvolvimento de um sistema de contas digitais. Tal desaf
 
 - Introdução
 - Tecnologias Utilizadas
+- Como Rodar
 - Modelo Entidade-Relacionamento
 - Diagrama Entidade-Relacionamento
+- Conexão Banco de Dados (AWS RDS)
 - Endpoints da API
 - Exemplos de uso
 
@@ -19,7 +21,29 @@ Após a modelagem, foi feita uma API do sistema com funções de cadastro de cli
 
 ## Tecnologias Utilizadas
 
-Para o desenvolvimento do sistema, foi escolhido um conjunto de tecnologias modernas e também utilizadas dentro do BTG Pactual. Como banco de dados, foi utilizado o PostgreSQL. A hospedagem do banco foi realizada na AWS RDS (Amazon Web Services Relational Database Services), aproveitando a escalabilidade e confiabilidade da nuvem para gerantir um sistema seguro. Quanto ao desenvolvimento da aplicação, foi utilizada a plataforma .NET, aproveitando seu framework para criar uma API completa, fornecendo uma ótima experiência aos usuários.
+Para desenvolver o projeto, foi utilizado tecnologias modernas e utilizadas no BTG Pactual. 
+O **PostgreSQL** foi escolhido como banco de dados, hospedado e gerenciado pelo **AWS RDS** para garantir escalabilidade e facilitar a utilização do projeto, sendo necessário apenas baixar e rodar o projeto. 
+Em relação ao desenvolvimento do projeto, foi utilizado **.NET** para implementação da API e os endpoints foram documentados no **Swagger**.
+
+## Como Rodar
+
+#### Pre-requistos:
+- .NET 6
+- Visual Studio ou Visual Studio Code
+
+#### Utilizando Visual Studio
+
+Para rodar a aplicação usando Visual Studio, basta dar um duplo clique no arquivo DesafioBTG e em seguida clicar no ícone para rodar aplicação conforme mostra abaixo:
+
+![Alt text](docs/examples_photos//visualstudio.png)
+
+#### Utilizando Visual Studio Code
+Para rodar utilizando o VS Code, basta seguir a seguinte instrução:
+Entre na pasta do serviço. Dentro da pasta "app" rode o comando:
+
+```bash
+dotnet run
+```
 
 ## Modelo Entidade-Relacionamento
 
@@ -51,7 +75,21 @@ Uma conta pode realizar mais de uma movimentação, mas uma movimentação está
 
 Os Scripts DDL e DML estão presentes nas pastas [DDL](docs/DDL) e [DML](docs/DML).
 
+Para a criação dos códigos de INSERT, UPDATE e DELETE dentro dos arquivos de DML, foi utlizado a função [dml_generate.py](/dml_generate.py) para gerar um arquivo .txt com as várias linhas de comando. 
+
 Para a utilização dos scripts envolvendo a tabela Transaction, é importante informar que as inserções diretas nela (como INSERT ou UPDATE) não irão afetar o valor do saldo na tabela Account. O valor da transação altera o valor do saldo por meio dos códigos, logo, para realizar saques e depósitos é necessário utilizar a API.
+
+## Conexão Banco de Dados (AWS RDS)
+
+Para se conectar ao banco de dados utilizando algum software de dministração e gerenciamento de banco de dado basta utilizar as seguintes informações:
+- **Host name/adress:** desafio-estagio-btg.c7u10yq6rhe5.sa-east-1.rds.amazonaws.com
+- **Port:** 5432
+- **Maintenence/database:** postgres
+- **Usarname:** postgres
+- **Password:** admindesafio
+
+![Pgadmin](docs/examples_photos//pgadmin.jpg)
+
 
 ## Endpoints da API
 
