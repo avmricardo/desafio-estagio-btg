@@ -1,5 +1,6 @@
 ﻿using dominio;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using repository.Interfaces;
 using service.Interfaces;
 using System;
@@ -40,7 +41,9 @@ namespace service
 
         public List<TransactionDTO> ListTransaction(int numberAccount)
         {
-            List<TransactionDTO> transactions = transactionRepository.ListTransaction(numberAccount);
+            List<TransactionDTO> transactions_unordered = transactionRepository.ListTransaction(numberAccount);
+            List<TransactionDTO> transactions = transactions_unordered.OrderBy(dict => dict.Date).ToList();
+
             return transactions;
         }
     }
