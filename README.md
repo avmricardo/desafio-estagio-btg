@@ -122,7 +122,7 @@ Vamos fazer o cadastro de 2 clientes novos:
 
 ![Alt text](docs/examples_photos/image-1.png)
 
-Tabela de clientes:
+Banco com os clientes:
 
 ![Alt text](docs/examples_photos//image6.png)
 
@@ -136,6 +136,42 @@ Ao realizar uma sequência de saques e depósitos na conta de número 14, podemo
 
 ![Alt text](docs/examples_photos/image-12.png)
 
-Abaixo estão os dados no banco, nota-se no método implementado os dados aparecem por ordem de data/horário, no banco não.
+Abaixo estão os dados no banco, nota-se que no método implementado os dados aparecem por ordem de data/horário, no banco não.
 
 ![Alt text](docs/examples_photos//image8.png)
+
+Visualização de saldo:
+
+![Alt text](docs/examples_photos/image9.png)
+
+### Atualização de dados de cliente
+
+![Alt text](docs/examples_photos/image10.png)
+
+Print do banco:
+
+![Alt text](docs/examples_photos/image11.png)
+
+### Listagem de clientes:
+
+![Alt text](docs/examples_photos/image12.png)
+
+### Busca de cliente pelo CPF:
+
+![Alt text](docs/examples_photos//image13.png)
+
+### Apagando dados dos clientes
+
+E por fim, a função DeleteClientAccount que apaga os dados do cliente, da sua conta e das transações associadas a conta.
+
+Deletando a conta 14:
+
+![Alt text](docs/examples_photos/image14.png)
+
+Print dos bancos sem o cliente "Ricardo Augusto" e sem os dados da conta e das transações:
+
+![Alt text](docs/examples_photos//image15.png)
+
+![Alt text](docs/examples_photos/image16.png)
+
+![Alt text](docs/examples_photos/image-13.png)
