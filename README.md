@@ -86,7 +86,7 @@ Para se conectar ao banco de dados utilizando algum software de dministração e
 - **Host name/adress:** desafio-estagio-btg.c7u10yq6rhe5.sa-east-1.rds.amazonaws.com
 - **Port:** 5432
 - **Maintenence/database:** postgres
-- **Usarname:** postgres
+- **Username:** postgres
 - **Password:** admindesafio
 
 ![Pgadmin](docs/examples_photos//pgadmin.jpg)
@@ -104,7 +104,7 @@ A função CreateClientAccount recebe como parâmetro os atributos do cliente (c
 
 A função ViewBalance recebe como atributo o número da conta e retorna seu saldo.
 
-A função DeleteClientAccount recebe como parâmetro o número da conta e apaga todas as informações no banco relacionadas as transações, a conta e ao cliente acossiado a ela.
+A função DeleteClientAccount recebe como parâmetro o número da conta e apaga todas as informações no banco relacionadas as transações, a conta e ao cliente associado a ela.
 
 ### Cliente:
 
@@ -124,7 +124,7 @@ A função Withdrar recebe o número da conta e o valor do saque e retira esse v
 
 A função Deposit tem uma funcionalidade parecida com a Withdraw, mas para depósitos.
 
-A ListTransactions recebe o número da conta e retorna uma lista com os dados de transações realizadas, sendo eles o valor da transação, a data e hora o tipo, sendo saque ou depósito.
+A ListTransactions recebe o número da conta e retorna uma lista com os dados de transações realizadas, sendo eles o valor da transação, a data, hora e o tipo, sendo saque ou depósito.
 
 ## Exemplos de uso
 
@@ -148,6 +148,8 @@ Código de SELECT acima:
 SELECT t.id_transaction, t.value, t.id_account, t.date, tt.description
 	FROM public.transaction t JOIN public.type_transaction tt ON t.type_transaction = tt.type;
 ```
+
+Ele serve para mostrar direto se a transação é saque ou depósito, ao invés do código da transação.
 
 A tabela type_transaction está representada abaixo:
 
